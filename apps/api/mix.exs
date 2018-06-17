@@ -40,8 +40,8 @@ defmodule Api.Mixfile do
       {:phoenix_pubsub, "~> 1.0"},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:authentication, in_umbrella: true, only: [:test]},
-      {:sauce, in_umbrella: true, only: [:test]}
+      {:authentication, in_umbrella: true, only: [:dev, :test]},
+      {:sauce, in_umbrella: true, only: [:dev, :test]}
     ]
   end
 end

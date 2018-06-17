@@ -10,12 +10,8 @@ defmodule Api.AuthenticationInterface do
     Enum.random
   end
 
-  defp do_remote_call({module, fun, args}, :test) do
-    apply(module, fun, args)
-  end
-  
-  defp do_remote_call({module, fun, args}, _) do
-    :rpc.call(remote_node(), module, fun, args)
-  end
-  
+  defp do_remote_call({module, fun, args}, :test), do: apply(module, fun, args)
+  defp do_remote_call({module, fun, args}, :dev), do: apply(module, fun, args)
+  defp do_remote_call({module, fun, args}, _), do:  :rpc.call(remote_node(), module, fun, args)
+
 end

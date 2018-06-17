@@ -1,6 +1,6 @@
 defmodule Authentication.Interface do
   
-  def valid?(token, route) when token == "asdf" and route == "sauce", do: {:ok}
+  def valid?(token, _) when token != "asdf", do: {:stop, :unauthorized}
   def valid?(_,_), do: {:stop}
-  
+
 end

@@ -7,9 +7,10 @@ defmodule Authentication.Application do
 
   def start(_type, _args) do
     # List all child processes to be supervised
+    import Supervisor.Spec
+
     children = [
-      # Starts a worker by calling: Authentication.Worker.start_link(arg)
-      # {Authentication.Worker, arg},
+      supervisor(Authentication.Repo, [])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
